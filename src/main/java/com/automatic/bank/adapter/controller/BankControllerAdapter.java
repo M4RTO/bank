@@ -1,7 +1,7 @@
 package com.automatic.bank.adapter.controller;
 
 import com.automatic.bank.adapter.controller.model.MovementModelRest;
-import com.automatic.bank.application.in.GetMovementsPortIn;
+import com.automatic.bank.application.port.in.GetMovementsPortIn;
 import com.automatic.bank.domain.Movement;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/api/v1/banks")
 public class BankControllerAdapter {
 
@@ -39,10 +40,10 @@ public class BankControllerAdapter {
             @PathVariable Long accountId,
             @RequestParam String type
     ) {
-        //log.info("Get movements with this accountId {} and this type {}", accountId, type);
+        log.info("Get movements with this accountId {} and this type {}", accountId, type);
         List<Movement> movementList = getMovementsPortIn.execute(accountId, type);
         List<MovementModelRest> movementRest = MovementModelRest.toMovementRestList(movementList);
-        //log.info("Get response: {}", movementRest);
+        log.info("Get response: {}", movementRest);
         return new ResponseEntity<>(movementRest, HttpStatus.OK);
 
 

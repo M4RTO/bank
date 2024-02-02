@@ -1,7 +1,7 @@
 package com.automatic.bank.adapter.controller;
 
 import com.automatic.bank.MockFactory;
-import com.automatic.bank.application.in.GetMovementsPortIn;
+import com.automatic.bank.application.port.in.GetMovementsPortIn;
 import com.automatic.bank.config.exception.MovementsNotFoundException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;

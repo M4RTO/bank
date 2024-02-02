@@ -1,4 +1,4 @@
-package com.automatic.bank.application.in;
+package com.automatic.bank.application.port.in;
 
 import com.automatic.bank.domain.Movement;
 
